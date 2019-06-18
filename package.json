@@ -1,5 +1,6 @@
 {
   "name": "angular-baitap-structural-directive",
+  "homepage": "https://kaitokidz.github.io/angular-bai-tap-ngx-pagination/",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
@@ -7,7 +8,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "private": true,
   "dependencies": {
@@ -21,6 +24,7 @@
     "@angular/router": "~8.0.1",
     "bootstrap": "^4.3.1",
     "font-awesome": "^4.7.0",
+    "gh-pages": "^2.0.1",
     "jquery": "^3.4.1",
     "ngx-pagination": "^4.0.0",
     "popper.js": "^1.15.0",
