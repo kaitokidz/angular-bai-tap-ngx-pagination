@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular-baitap-structural-directive": {
+    "angular-bai-tap-ngx-pagination": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular-baitap-structural-directive",
+            "outputPath": "dist/angular-bai-tap-ngx-pagination",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -68,18 +68,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular-baitap-structural-directive:build"
+            "browserTarget": "angular-bai-tap-ngx-pagination:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular-baitap-structural-directive:build:production"
+              "browserTarget": "angular-bai-tap-ngx-pagination:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular-baitap-structural-directive:build"
+            "browserTarget": "angular-bai-tap-ngx-pagination:build"
           }
         },
         "test": {
@@ -116,15 +116,15 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular-baitap-structural-directive:serve"
+            "devServerTarget": "angular-bai-tap-ngx-pagination:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular-baitap-structural-directive:serve:production"
+              "devServerTarget": "angular-bai-tap-ngx-pagination:serve:production"
             }
           }
         }
       }
     }},
-  "defaultProject": "angular-baitap-structural-directive"
+  "defaultProject": "angular-bai-tap-ngx-pagination"
 }
