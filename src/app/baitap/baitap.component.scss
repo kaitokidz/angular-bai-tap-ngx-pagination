@@ -7,3 +7,21 @@
     margin-left: 0px;
     margin-bottom: 0px;
 }
+
+.input-group-btn .btn{
+    border-radius: 0 !important;
+    color: #ffffff;
+
+}
+
+.btn-custom {
+    background: #d63031;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #ffffff;
+    border-color: #d63031;
+    outline: 0;
+    box-shadow: none;
+}

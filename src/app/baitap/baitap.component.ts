@@ -53,17 +53,17 @@ export class BaitapComponent implements OnInit {
    * themSanPham(_maSP, _tenSP, _giaSP)
    * thêm sản phẩm vào mảng lstSanPham
    */
-  public themSanPham(_maSP:string, _tenSP :string, _giaSP : string) {
+  public themSanPham(_maSP:string, _tenSP :string, _giaSP : any) {
    
     const objSanPham = {
       MaSP  : _maSP,
       TenSP : _tenSP,
-      Gia   : _giaSP,
+      Gia   : _giaSP * 1, // Convert to number
     };
 
     this.lstSanPham.push(objSanPham);    
 
-    this.setLocalStorage();
+    this.setLocalStorage();    
   }
 
   /**
@@ -117,7 +117,9 @@ export class BaitapComponent implements OnInit {
    * capNhatSanPham(_maSP, _tenSP, _giaSP)
    * method update lại thông tin sản phẩm
    */
-  public capNhatSanPham(_maSP : any, _tenSP :string, _giaSP : string) {
+  public capNhatSanPham(_maSP : any, _tenSP :string, _giaSP : any) {
+   
+    this.lstSanPham = this.getLocalStorage();
 
     // Tìm kiếm index của sản phẩm cần sửa
     let timKiemIndex:any = this.lstSanPham.findIndex(function(sanPham:any){
@@ -129,10 +131,9 @@ export class BaitapComponent implements OnInit {
 
     // Cập nhật sản phẩm
     sanPhamCapNhat.TenSP = _tenSP;
-    sanPhamCapNhat.Gia   = _giaSP;
+    sanPhamCapNhat.Gia   = _giaSP * 1;
 
-    // Gán xuống  localStorage
-    this.setLocalStorage();       
+    this.setLocalStorage();
   }
 
   /**
@@ -155,6 +156,8 @@ export class BaitapComponent implements OnInit {
    */
   public xoaSanPham(_maSP : string) {
 
+    this.lstSanPham = this.getLocalStorage();    
+
     // Tìm kiếm index của sản phẩm cần xóa
     let timKiemIndex:any = this.lstSanPham.findIndex(function(sanPham:any){
       return sanPham.MaSP == _maSP;
@@ -173,6 +176,8 @@ export class BaitapComponent implements OnInit {
    */
   public timKiemSanPham(_keyword : string) {
 
+    this.lstSanPham = this.getLocalStorage();
+  
     if(_keyword) {
       
       let sanPham =  this.lstSanPham.filter(
@@ -180,15 +185,8 @@ export class BaitapComponent implements OnInit {
       );  
 
       this.lstSanPham = sanPham;
-
-    } else {
-      // Nếu ko có keyword thì lấy data từ localStorage
-      this.lstSanPham = this.getLocalStorage();
     }
+    // Reset lại ô nhập sản phẩm
+    this.cancelCapNhat();
   }
-
-
-
-
-
 }
